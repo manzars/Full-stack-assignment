@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import MainPage from './Screens/MainPage';
+import MainNavigator from './Navigations/MainNavigator';
 import AuthNavigator from './Navigations/AuthNavigator';
 import UserContext from './Utility/Context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -46,7 +46,7 @@ const App = () => {
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
       <UserContext.Provider value={{user, setUser, token, setToken}}>
         <NavigationContainer>
-          {!user ? <AuthNavigator /> : <MainPage />}
+          {!user ? <AuthNavigator /> : <MainNavigator />}
         </NavigationContainer>
       </UserContext.Provider>
     </React.Fragment>
